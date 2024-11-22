@@ -61,9 +61,15 @@ def actualizar_tablero(tablero: list[list[str]], x: int, y: int, jugador):
     else:
         ficha = "o"
     try:
+        if tablero[x][y] != " ":
+            raise Exception("*ERROR* Ya hay una ficha ahi.")
+
         tablero[x][y] = ficha
+
     except IndexError:
         print("*ERROR* La ficha no puede ir ahí.")
+    except Exception as e:
+        print(e)
 
     return tablero
     
