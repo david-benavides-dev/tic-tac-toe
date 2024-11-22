@@ -72,7 +72,7 @@ def actualizar_tablero(tablero: list[list[str]], x: int, y: int, jugador):
         print(e)
 
     return tablero
-    
+
 
 def mostrar_menu():
     return"""
