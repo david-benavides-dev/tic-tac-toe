@@ -133,11 +133,35 @@ def mostrar_info_ronda():
     pass
 
 
-def condicion_ganador():
+def condicion_ganador(tablero) -> int:
+    # 1: Gana jugador 1
+    # 2: Gana jugador 2
+    # 3: Empate
     """
     
     """
-    pass
+    ganador = 0
+
+    jugador_1 = "x"
+    jugador_2 = "o"
+
+    filas = tablero[0]
+    columnas = tablero[0][0]
+
+    # Condicionales de victoria para ganador 1
+    if filas[0] == jugador_1 and filas[0] == jugador_1 and filas[0] == jugador_1:
+        ganador = 1
+    elif filas[1] == jugador_1 and filas[1] == jugador_1 and filas[1] == jugador_1:
+        ganador = 1
+    elif filas[2] == jugador_1 and filas[2] == jugador_1 and filas[2] == jugador_1:
+        ganador = 1
+
+    # for i in range(len(tablero)):
+    #     for j in range(tablero[i]):
+
+    return ganador
+
+
 
 
 def comenzar_partida():
