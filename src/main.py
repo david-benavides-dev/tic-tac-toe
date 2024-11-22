@@ -80,16 +80,19 @@ def mostrar_menu():
 
 
 def mostrar_opciones():
+    """
+    
+    """
     pass
 
 
-def preguntar_casilla() -> tuple:
+def preguntar_casilla(jugador) -> tuple:
     """
     
     """
     validar_posicion = False
     while not validar_posicion:
-        posicion = input("JUGADOR ¿Dónde quieres colocar tu ficha? (EJ: '1 1') >> ")
+        posicion = input(f"JUGADOR {jugador} ¿Dónde quieres colocar tu ficha? (EJ: '1 1') >> ")
         if len(posicion) != 3:
             print("*ERROR* Debes seleccionar tu posición con el formato 'N N.")
         elif posicion[1] != " ":
@@ -107,22 +110,60 @@ def preguntar_casilla() -> tuple:
             except Exception as e :
                 print(e)
 
-    return y-1, x-1, 1
+    return y-1, x-1, jugador
+
+
+def turno_jugador(jugador):
+    """
+    
+    """
+    pass
+
+
+def mostrar_info_ronda():
+    """
+    
+    """
+    pass
+
+
+def condicion_ganador():
+    """
+    
+    """
+    pass
+
+
+def comenzar_partida():
+    """
+    
+    """
+    tablero = crear_tablero(BOARD_SIZE["filas"],BOARD_SIZE["columnas"])
+
+    print(mostrar_menu())
+
+    pausa()
+
+    limpiar_terminal()
+
+    salir = False
+    while not salir:
+        print(mostrar_tablero(tablero))
+        x, y, jugador = preguntar_casilla(1)
+        actualizar_tablero(tablero, x, y, jugador)
+        pausa()
+        limpiar_terminal()
+        print(mostrar_tablero(tablero))
+        x, y, jugador = preguntar_casilla(2)
+        actualizar_tablero(tablero, x, y, jugador)
+        pausa()
+        limpiar_terminal()
 
 
 def main():
     limpiar_terminal()
-    tablero = crear_tablero(BOARD_SIZE["filas"],BOARD_SIZE["columnas"])
-    print(mostrar_menu())
-    pausa()
-    limpiar_terminal()
-    salir = False
-    while not salir:
-        print(mostrar_tablero(tablero))
-        x, y, jugador = preguntar_casilla()
-        actualizar_tablero(tablero, x, y, jugador)
-        pausa()
-        limpiar_terminal()
+
+    comenzar_partida()
 
 
 if __name__ == "__main__":
